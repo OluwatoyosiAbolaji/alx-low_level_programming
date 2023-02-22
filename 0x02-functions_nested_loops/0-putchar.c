@@ -3,7 +3,7 @@
 //This function prints the string _putchar
 int main()
 {
-	printf("_putchar\n");
+	_putchar("_putchar\n");
 	return 0;
 
 }
