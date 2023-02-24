@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 /**
  * largest_number - returns the largest of 3 numbers
