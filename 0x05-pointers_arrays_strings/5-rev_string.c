@@ -1,33 +1,25 @@
-#include "main.h"
-
+#include "holberton.h"
 /**
-  * rev_string - Reverses a string
-  * @s: The string to be modified
-  *
-  * Return: void
-  */
+  * rev_string - prints string
+  * @s: input string
+  * Return: no return
+**/
 void rev_string(char *s)
 {
-	int i, c, k;
-	char *a, aux;
-
-	a = s;
-
-	while (s[c] != '\0')
-	{
-		c++;
-	}
-
-	for (k = 1; k < c; k++)
-	{
-		a++;
-	}
-
-	for (i = 0; i < (c / 2); i++)
-	{
-		aux = s[i];
-		s[i] = *a;
-		*a = aux;
-		a--;
-	}
+int i = 0, j = 0;
+char aux;
+while (s[i] != '\0')
+{
+i++;
+}
+while (i > 0)
+{
+for (j = 0; j < (i - 1); j++)
+{
+aux = s[j + 1];
+s[j + 1] =  s[j];
+s[j] = aux;
+}
+i--;
+}
 }
