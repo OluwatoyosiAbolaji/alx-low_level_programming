@@ -2,41 +2,6 @@
 #include <stdio.h>
 
 /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
- *
- * Return: integer length of string
- */
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (*s++)
-		i++;
-	return (i);
-}
-
-/**
- * rev_string - reverses a string
- * @s: the string to reverse
- *
- * Return: void
- */
-char *rev_string(char *s)
-{
-	int l = _strlen(s), i = 0;
-	char t;
-
-	for (i = 0; i < l / 2; i++)
-	{
-		t = s[l - i - 1];
-		s[l - i - 1] = s[i];
-		s[i] = t;
-	}
-	return (s);
-}
-
-/**
  * infinite_add - adds arbitrarily long string of digits
  * @n1: the first digit string
  * @n2: the second digit string
