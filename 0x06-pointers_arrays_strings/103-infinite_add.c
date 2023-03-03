@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * infinite_add - Add up two numbers stored in given char arrays
