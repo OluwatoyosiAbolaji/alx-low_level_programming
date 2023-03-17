@@ -1,58 +1,68 @@
-#include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-
 /**
- * _isdigit - checks if a string contains only digits
- * @str: string
- * Return: 1 (success)
- */
-int _isdigit(char *str)
+  * _isdigit - tells if the string consists of digits
+  * @argv: pointer to current item in argument
+  * Return: return 0 if all digits, 1 if not all digits.
+  */
+int _isdigit(char *argv)
 {
 	int i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (argv[i])
 	{
-		if (str[i] < 48 || str[i] > 57)
+		if (argv[i] >= '0' && argv[i] <= '9')
+			i++;
+		else
+			return (1);
+	}
+	return (0);
+}
+/**
+  * _atoi - converts a string of ascii digits to the values they represent
+  * @s: pointer to the source string
+  * Return: value of digits
+  */
+int _atoi(char *s)
+{
+	int i, result;
+
+	i = result = 0;
+	while (s[i])
+	{
+		if (s[i] >= '0' && s[i] <= '9')
 		{
-			printf("Error\n");
-			exit(98);
+			result *= 10;
+			result += (s[i] - '0');
 		}
 		i++;
 	}
-	return (1);
+	return (result);
 }
-
 /**
- * main - multiplies two positive numbers
- * @argc: argument count
- * @argv: agument variables
- * Return: 0 (success)
- */
+  * main - main function call
+  * @argc: argument count
+  * @argv: 2D array of arguments
+  * Return: return 0 on success, 98 on failure
+  */
 int main(int argc, char *argv[])
 {
-	unsigned long result;
+	int i;
 
+	malloc();
 	if (argc != 3)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-
-	if (!_isdigit(argv[1]))
+	for (i = 1; i < argc; i++)
 	{
-		printf("Error\n");
-		exit(98);
+		if (_isdigit(argv[i]))
+		{
+			printf("Error\n");
+			exit(98);
+		}
 	}
-	if (!_isdigit(argv[2]))
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
-	result = atol(argv[1]) * atol(argv[2]);
-
-	printf("%lu\n", result);
 	return (0);
 }
