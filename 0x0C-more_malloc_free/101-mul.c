@@ -12,14 +12,22 @@ void printchars(int *a, int length)
 	int i = 0;
 	char c;
 
-	while (a[i] == 0)
+	while (a[i] == 0 && i < length)
 		i++;
-	for (; i < length; i++)
+	if (i == length)
 	{
-		c = a[i] + '0';
-		_putchar (c);
+		_putchar('0');
+		_putchar('\n');
 	}
-	_putchar('\n');
+	else
+	{
+		for (; i < length; i++)
+		{
+			c = a[i] + '0';
+			_putchar (c);
+		}
+		_putchar('\n');
+	}
 }
 /**
   *add - adds the array after multiplication
