@@ -1,4 +1,11 @@
 #include "lists.h"
+/**
+  *add_nodeint_end - adds a new node to the end
+  *@head: double pointer to list
+  *@n: new data
+  *
+  *Return: new pointer
+  */
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
 	listint_t *ptr;
@@ -12,7 +19,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	if (temp == NULL)
 	{
 		*head = ptr;
-	} 
+	}
 	else
 	{
 		while (temp->next != NULL)
