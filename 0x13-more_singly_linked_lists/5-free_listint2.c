@@ -2,7 +2,7 @@
 
 /**
  * free_listint2 - frees all nodes
- * @ptr: double pointer to list
+ * @head: double pointer to list
  *
  *Return: void
  */
