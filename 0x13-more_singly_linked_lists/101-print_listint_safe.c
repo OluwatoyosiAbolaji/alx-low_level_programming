@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 /**
   *print_listint_safe - prints a list with a loop
   *@head: pointer to the first node
