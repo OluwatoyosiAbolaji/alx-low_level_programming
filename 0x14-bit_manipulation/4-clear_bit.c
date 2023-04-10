@@ -13,18 +13,19 @@ int power(int a, int b)
 	return (a * power(a, (b - 1)));
 }
 /**
-  *set_bit - sets a bit of a particular index to 1
+  *clear_bit - sets a bit of a particular index to 0
   *@n: pointer to integer
   *@index: index to number
   *Return: 1 on success
   */
-int set_bit(unsigned long int *n, unsigned int index)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int number;
 
 	if (index >= (sizeof(*n) * 8))
 		return (-1);
 	number = power(2, index);
-	*n = *n | number;
+	number = ~(number);
+	*n = *n & number;
 	return (1);
 }
