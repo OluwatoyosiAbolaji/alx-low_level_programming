@@ -25,7 +25,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	reed = read(file, buffer, letters);
 	if (reed == -1)
 		return (0);
-	
 	buffer[reed] = '\0';
 
 	print = write(STDOUT_FILENO, buffer, reed);
