@@ -36,13 +36,14 @@ int main(int argc, char **argv)
 	if (j == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
+		close2 = close(j);
 		exit(98);
 	}
 	close1 = close(file1);
 	if (close1 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", close1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file1);
 	close2 = close(file2);
 	if (close2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", close2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file2);
 	return (0);
 }
