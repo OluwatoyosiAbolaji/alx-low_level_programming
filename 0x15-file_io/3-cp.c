@@ -26,8 +26,9 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		close(file2), exit(99);
 	}
-	while ((j = read(file1, buffer, BUFF_SIZE)) > 0)
+	while (j == BUFF_SIZE)
 	{
+		j = read(file1, buffer, BUFF_SIZE);
 		if (j == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
