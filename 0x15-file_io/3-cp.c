@@ -9,7 +9,7 @@
   */
 int main(int argc, char **argv)
 {
-	int file1, file2, j, k, close1, close2;
+	int file1, file2, j, k;
 	char buffer[BUFF_SIZE];
 
 	if (argc != 3)
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	if (j == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
-		close2 = close(j), exit(98);
+		close(j), exit(98);
 	}
 	if (close(file1) == -1)
 	{
