@@ -9,7 +9,7 @@
   */
 int main(int argc, char **argv)
 {
-	int file1, file2, i, j, k, close1, close2;
+	int file1, file2, j, k, close1, close2;
 	char buffer[BUFF_SIZE];
 
 	if (argc != 3)
