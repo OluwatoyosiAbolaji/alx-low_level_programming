@@ -40,9 +40,9 @@ int main(int argc, char **argv)
 	}
 	i = close(file1);
 	if (i == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", i);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", i);
 	j = close(file2);
 	if (j == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", j);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", j);
 	return (0);
 }
