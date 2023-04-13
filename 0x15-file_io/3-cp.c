@@ -9,7 +9,7 @@
   */
 int main(int argc, char **argv)
 {
-	int file1, file2, j, k;
+	int file1, file2, j = BUFF_SIZE, k;
 	char buffer[BUFF_SIZE];
 
 	if (argc != 3)
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 			close(j), exit(98);
 		}
 		k = write(file2, buffer, j);
-		if (k != j)
+		if (k < j)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
 	if (close(file1) == -1)
