@@ -9,7 +9,7 @@
   */
 int main(int argc, char **argv)
 {
-	int file1, file2, i, j, k;
+	int file1, file2, i, j, k, close1, close2;
 	char buffer[BUFF_SIZE];
 
 	if (argc != 3)
@@ -38,11 +38,11 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
 		exit(98);
 	}
-	i = close(file1);
+	close1 = close(file1);
 	if (i == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n", i);
-	j = close(file2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", close1);
+	close2 = close(file2);
 	if (j == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n", j);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", close2);
 	return (0);
 }
