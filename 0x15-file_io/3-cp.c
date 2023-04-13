@@ -39,10 +39,10 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 	close1 = close(file1);
-	if (i == -1)
+	if (close1 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", close1);
 	close2 = close(file2);
-	if (j == -1)
+	if (close2 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", close2);
 	return (0);
 }
