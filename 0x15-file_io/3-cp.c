@@ -26,7 +26,6 @@ int main(int argc, char **argv)
 	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	while ((j = read(file1, buffer, BUFF_SIZE)) > 0)
 	{
-		
 		if (j == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
