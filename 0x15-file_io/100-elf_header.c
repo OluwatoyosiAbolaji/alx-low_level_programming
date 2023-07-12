@@ -71,7 +71,7 @@ void print_elf(const Elf64_Ehdr *header)
 		default:
 			printf("Unknown\n");
 	}
-	printf("	Entry point address:	0x%lx00\n", header->e_entry);
+	printf("	Entry point address:	%0#06x\n", header->e_entry);
 }
 
 /**
