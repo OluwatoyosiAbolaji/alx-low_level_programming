@@ -26,18 +26,18 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		close(file2), exit(99);
 	}
-	while (j == BUFF_SIZE)
+	do
 	{
 		j = read(file1, buffer, BUFF_SIZE);
 		if (j == -1)
 		{
+			close(file1), close(file2), exit(98);
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
-			close(j), exit(98);
 		}
 		k = write(file2, buffer, j);
 		if (k < j)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
-	}
+	} while (j == BUFF_SIZE);
 	if (close(file1) == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file1), exit(100);
 	if (close(file2) == -1)
