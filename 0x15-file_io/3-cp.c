@@ -30,8 +30,8 @@ int main(int argc, char **argv)
 		j = read(file1, buffer, BUFF_SIZE);
 		if (j == -1)
 		{
-			close(file1), close(file2), exit(98);
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			close(file1), close(file2), exit(98);
 		}
 		k = write(file2, buffer, j);
 		if (k < j)
