@@ -21,7 +21,7 @@ void print_ident(const Elf64_Ehdr *header)
 	printf("Data:                              ");
 	printf("%s\n", header->e_ident[EI_DATA] == ELFDATA2LSB ? "2's complement, little endian" : "2's complement, big endian");
 	printf("Version:                           ");
-	printf("%u\n", header->e_ident[EI_VERSION]);
+	printf("%u (current)\n", header->e_ident[EI_VERSION]);
 	printf("OS/ABI:                            ");
 	switch (header->e_ident[EI_OSABI])
 	{
