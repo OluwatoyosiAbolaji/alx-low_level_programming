@@ -1,22 +1,22 @@
 #include "main.h"
+
 /**
- * print_alphabet_x10 - a function that prints 10 times the alphabet
+ * print_alphabet_x10 - prints letters of the alphabet x10
  *
- * Return: x10 a-z
+ * Return: void
  */
 void print_alphabet_x10(void)
 {
-	int n, co;
+	int i;
 
-	co = 0;
-
-	while (co < 10)
+	for (i = 0; i < 10; i++)
 	{
-		for (n = 'a'; n <= 'z'; n++)
+		int j;
+
+		for (j = 97; j < 123; j++)
 		{
-			_putchar(n);
+			_putchar(j);
 		}
-		co++;
 		_putchar('\n');
 	}
 }

@@ -1,48 +1,47 @@
 #include <stdio.h>
 
 /**
- * main - Prints numbers between 00 to 99.
+ * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: 0 (success)
  */
 int main(void)
 {
-int i, e, g, h, op1, op2;
+	int digit1a, digit1b, digit2a, digit2b;
 
-i = e = g = h = 48;
-while (h < 58)
-{
-	g = 48;
-	while (g < 58)
+	for (digit1a = 48; digit1a < 58; digit1a++)
 	{
-		e = 48;
-		while (e < 58)
+		for (digit1b = 48; digit1b < 58; digit1b++)
 		{
-			i = 48;
-			while (i < 58)
+			for (digit2a = digit1a; digit2a < 58; digit2a++)
 			{
-				op1 = (h * 10) + g;
-				op2 = (e * 10) + i;
-				if (op1 < op2)
+				for (digit2b = 48; digit2b < 58; digit2b++)
 				{
-					putchar(h);
-					putchar(g);
-					putchar(' ');
-					putchar(e);
-					putchar(i);
-					if (h == 57 && g == 56 && e == 57 && i == 57)
-						break;
-					putchar(',');
-					putchar(' ');
+					if ((digit2b == digit1b) && (digit1a == digit2a))
+					{
+						continue;
+					} else if ((digit2b == digit1a) && (digit2a == digit1b))
+					{
+					} else
+					{
+						putchar(digit1a);
+						putchar(digit1b);
+						putchar(' ');
+						putchar(digit2a);
+						putchar(digit2b);
+						if ((digit1a == 57 && digit1b == 56) && (digit2a == 57 && digit2b == 57))
+						{
+							continue;
+						} else
+						{
+							putchar(',');
+							putchar(' ');
+						}
+					}
 				}
-				i++;
 			}
-			e++;
 		}
-		g++;
 	}
-	h++;
-}
-putchar('\n');
-return (0);
+	putchar('\n');
+	return (0);
 }

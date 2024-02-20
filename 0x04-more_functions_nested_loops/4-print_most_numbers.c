@@ -1,18 +1,21 @@
 #include "main.h"
 
 /**
- * print_most_numbers - Prints the numbers from 0-9 except for 2 and 4.
+ * print_most_numbers - prints 0-9, except 2 and 4
+ * Return: ALways 0
  */
 void print_most_numbers(void)
 {
-	int num;
+	int i;
 
-	for (num = 0; num <= 9; num++)
+	i = 48;
+	while (i < 58)
 	{
-		if (num != 2 && num != 4)
-			_putchar((num % 10) + '0');
+		if (i != 50 && i != 52)
+		{
+			_putchar(i);
+		}
+		i++;
 	}
-
 	_putchar('\n');
 }
-

@@ -1,35 +1,41 @@
 #include "main.h"
-#define BUFF_MAX 1024
+
 /**
-  *create_file - creates a file and writes content in it
-  *@filename: name of file to be created
-  *@text_content: string of chars to be written
-  *Return: 1 on success, -1 on failure
-  */
+ * create_file - creates a file
+ * @filename: name of file to be created
+ * @text_content: string to be written to file
+ * Return: 1 on success, -1 on fail
+ */
 int create_file(const char *filename, char *text_content)
 {
-	int file_no, i, j;
+	int file, writes, len = 0;
 
+	/* check valid filename */
 	if (filename == NULL)
 		return (-1);
-	file_no = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
-	if (file_no == -1)
+
+	/* create empty file */
+	file = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+	if (file == -1)
 		return (-1);
-	if (text_content == NULL)
+
+	/* if text_content is NULL */
+	if (!text_content)
 	{
-		close(file_no);
+		close(file);
 		return (1);
 	}
-	for (i = 0; text_content[i];)
-		i++;
-	j = write(file_no, text_content, i);
-	if (j == -1 || j != i)
-	{
-		close(file_no);
+
+	/* get the length of text_content */
+	while (text_content[len])
+		len++;
+
+
+	/* write into file */
+	writes = write(file, text_content, len);
+	if (writes == -1)
 		return (-1);
-	}
-	file_no = close(file_no);
-	if (file_no == -1)
-		return (-1);
+
+	close(file);
 	return (1);
 }

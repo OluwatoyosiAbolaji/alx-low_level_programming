@@ -2,14 +2,14 @@
 
 /**
  * delete_nodeint_at_index - deletes a node at a particular index
- * @head: pointer to singly linked list
+ * @head: singly linked list
  * @index: index
- * Return: 1 (success) -1(failure)
+ * Return: 1 (success) else -1
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	unsigned int i;
-	listint_t *temp = *head, *present = NULL;
+	listint_t *temp = *head, *current = NULL;
 
 	if (*head == NULL)
 		return (-1);
@@ -28,8 +28,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		temp = temp->next;
 	}
 
-	present = temp->next;
-	temp->next = present->next;
-	free(present);
+	current = temp->next;
+	temp->next = current->next;
+	free(current);
 	return (1);
 }
